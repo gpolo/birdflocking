@@ -537,7 +537,7 @@ simulation.init = function ()
     window.setInterval(update, 1000 / fps)
 
 
-    var initialPop = 90
+    var initialPop = 50
     for (var i = 0; i < initialPop; i++) {
 	var boid = new Boid(canvas, canvas.width * 0.5, canvas.height * 0.5,
 			    simulation.prng() * 360,
