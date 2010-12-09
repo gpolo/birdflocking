@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="author" content="Guilherme Polo">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>System Simulation - Bird Flocking</title>
+    <script type="text/javascript" src="vector.js"></script>
+    <script type="text/javascript" src="simulation.js"
+	    charset="utf-8">
+    </script>
+    <script type="text/javascript" src="fps.js"></script>
+    <script type="text/javascript" src="prng/Mash.js" charset="utf-8"></script>
+    <script type="text/javascript" src="prng/MRG32k3a.js"></script>
+  </head>
+  <body style="height: 100%; margin: 0;">
+    <div id="bar" style="background-color: #bbb;" align="center"
+      style="float: left;">
+      Object: <select id="object">
+	<option value="bird">Bird</option>
+	<option value="obstacle">Obstacle</option>
+      </select>&#8193;
+      Effect of
+      <select id="effect"
+	      onchange="simulation.updateEffectView(this.value)">
+	<option value="separate">Separation</option>
+	<option value="align">Alignment</option>
+	<option value="cohesion">Cohesion</option>
+	<option value="wander">Wandering</option>
+	<option value="none">---------</option>
+	<option value="avoid">Avoidance</option>
+      </select>
+      <input type="range" min="0" max="100" id="rangeInput"
+	     onchange="simulation.updateEffect(this.value)" />
+      <div id="rangeText"
+	   style="display: inline-block; text-align: right; width:
+		  16px;">
+	0</div>&nbsp;&nbsp;%
+      &#8193;
+      Population: <input type="button" id="population" value="0 &#9760;"
+			 onclick="simulation.killBird()">
+      &#8193;
+      Debug:
+      <select id="debug" onchange="simulation.updateDebug()">
+	<option value="none">None</option>
+	<option value="birdview">Bird view</option>
+	<option value="all">All</option>
+      </select>
+    </div>
+    <canvas id="main" style="background-color: #132c3d;">
+    </canvas>
+  </body>
+</html>
